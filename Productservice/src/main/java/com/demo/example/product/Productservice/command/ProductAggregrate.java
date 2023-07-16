@@ -25,7 +25,7 @@ public class ProductAggregrate {
 	}
 	
 	@CommandHandler
-	public ProductAggregrate(CreateProductCommand createProductCommand){
+	public ProductAggregrate(CreateProductCommand createProductCommand) throws Exception{
 		// Validate Create Product Command
 		
 		if(createProductCommand.getPrice().compareTo(BigDecimal.ZERO) <=0) {
@@ -42,6 +42,8 @@ public class ProductAggregrate {
 		BeanUtils.copyProperties(createProductCommand, productCreatedEvent);
 		
 		AggregateLifecycle.apply(productCreatedEvent);
+		
+		if(true) throw new Exception("An Error took place in the CreateCommandProduct @Command");
 	
 	}
 	

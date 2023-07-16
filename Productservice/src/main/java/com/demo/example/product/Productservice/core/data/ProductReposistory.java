@@ -6,6 +6,6 @@ public interface ProductReposistory extends JpaRepository<ProductEntity, String>
 	
 	ProductEntity findByProductId(String productId); 
 	
-	ProductEntity findByProductIdorTitle(String productId, String Title);
+	ProductEntity findByProductIdOrTitle(String productId, String Title);
 
 }

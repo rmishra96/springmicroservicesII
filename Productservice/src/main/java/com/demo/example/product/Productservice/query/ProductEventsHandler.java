@@ -1,5 +1,6 @@
 package com.demo.example.product.Productservice.query;
 
+import org.axonframework.config.ProcessingGroup;
 import org.axonframework.eventhandling.EventHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
@@ -9,6 +10,7 @@ import com.demo.example.product.Productservice.core.data.ProductReposistory;
 import com.demo.example.product.Productservice.core.events.ProductCreatedEvent;
 
 @Component
+@ProcessingGroup("product-group")
 public class ProductEventsHandler {
 	
 	

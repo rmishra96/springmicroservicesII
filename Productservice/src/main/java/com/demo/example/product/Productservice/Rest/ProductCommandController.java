@@ -39,24 +39,19 @@ public class ProductCommandController {
 				.title(createProductRestModel.getTitle()).productId(UUID.randomUUID().toString()).build();
 
 		String returnValue;
-
+			
 		returnValue = commandGateway.sendAndWait(createProductCommand);
 
 		return returnValue;
 	}
 
-	@GetMapping
-	public String getProducts() {
-		return "HTTP Get request Handled" + env.getProperty("local.server.port");
-	}
-
-	@PutMapping
-	public String updateProduct() {
-		return "HTTP Put handled";
-	}
-
-	@DeleteMapping
-	public String deleteProduct() {
-		return "Http delete Handled";
-	}
+	/*
+	 * @GetMapping public String getProducts() { return "HTTP Get request Handled" +
+	 * env.getProperty("local.server.port"); }
+	 * 
+	 * @PutMapping public String updateProduct() { return "HTTP Put handled"; }
+	 * 
+	 * @DeleteMapping public String deleteProduct() { return "Http delete Handled";
+	 * }
+	 */
 }
