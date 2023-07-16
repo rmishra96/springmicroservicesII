@@ -2,6 +2,7 @@ package com.demo.example.product.Productservice.query;
 
 import org.axonframework.config.ProcessingGroup;
 import org.axonframework.eventhandling.EventHandler;
+import org.axonframework.messaging.interceptors.ExceptionHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,17 @@ public class ProductEventsHandler {
 		this.productReposistory = productReposistory;
 	}
 	
+	
+	@ExceptionHandler(resultType = IllegalArgumentException.class)
+	public void handle(IllegalArgumentException exception) {
+		
+	}
+	
+	@ExceptionHandler(resultType = Exception.class)
+	public void handle(Exception exception) throws Exception {
+		throw exception;
+		
+	}
 	
 	@EventHandler
 	public void on(ProductCreatedEvent event) {
